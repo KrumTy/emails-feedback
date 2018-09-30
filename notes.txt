@@ -1,0 +1,19 @@
+Commmand Line:
+
+git init
+git add .
+git commit -m "some message"
+heroku create
+git remote add heroku https://git.heroku.com/secret-plains-84218.git
+git push heroku master
+heroku open
+heroku logs
+
+
+git status
+
+git add .
+git commit -m "change response"
+git push heroku master
+
+https://secret-plains-84218.herokuapp.com/

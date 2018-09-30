@@ -17,3 +17,7 @@ git commit -m "change response"
 git push heroku master
 
 https://secret-plains-84218.herokuapp.com/
+https://console.developers.google.com/
+
+nodemon
+npmrun dev

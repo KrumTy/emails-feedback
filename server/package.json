@@ -35,10 +35,10 @@
       "node": true
     },
     "rules": {
-      "arrow-parens": "as-needed",
+      "arrow-parens": ["error", "as-needed"],
+      "max-len": ["error", { "code": 80, "ignoreStrings": true }],
+      "no-console": "off",
       "linebreak-style": 0,
-      "max-len": 150,
-      "no-console": "on",
       "brace-style": [
         "error",
         "stroustrup"

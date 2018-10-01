@@ -14,6 +14,7 @@
   "author": "zarichepower@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.3",
     "mongoose": "^5.3.0",
     "nodemon": "^1.18.4",
@@ -35,8 +36,23 @@
       "node": true
     },
     "rules": {
-      "arrow-parens": ["error", "as-needed"],
-      "max-len": ["error", { "code": 80, "ignoreStrings": true }],
+      "object-curly-newline": [
+        "error",
+        {
+          "consistent": true
+        }
+      ],
+      "arrow-parens": [
+        "error",
+        "as-needed"
+      ],
+      "max-len": [
+        "error",
+        {
+          "code": 150,
+          "ignoreStrings": true
+        }
+      ],
       "no-console": "off",
       "linebreak-style": 0,
       "brace-style": [

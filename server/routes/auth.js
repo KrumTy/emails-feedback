@@ -10,14 +10,10 @@ module.exports = app => {
 
   app.get('/auth/google/callback', passport.authenticate('google'));
 
-  app.get('/api/current_user', (req, res) => {
+  app.get('/auth/logout', (req, res) => {
+    req.logout();
     res.send(req.user);
   });
 
-  app.get('/', (req, res) => {
-    console.log('get/');
-    res.send({
-      ok: true
-    });
-  });
+  app.get('/auth/current_user', (req, res) => res.send(req.user));
 };

@@ -21,3 +21,9 @@ https://console.developers.google.com/
 
 nodemon
 npmrun dev
+
+
+
+react
+npm install -g create-react-app
+\client npm start

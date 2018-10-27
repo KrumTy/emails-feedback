@@ -4,20 +4,11 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema({
   googleId: String,
-  name: String
+  name: String,
+  credits: { type: Number, default: 0 }
 });
 
 userSchema.statics.findOrCreate = async function findOrCreate(profile, done) {
-  // this.findOne({ googleId: profile.googleId }, (error, localProfile) => {
-  //   if (error) return done(error);
-
-  //   if (!localProfile) {
-  //     return new this(profile).save().then(user => done(null, user));
-  //   }
-
-  //   return done(error, localProfile);
-  // });
-
   const localProfile = await this.findOne({ googleId: profile.googleId });
 
   if (!localProfile) {

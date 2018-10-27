@@ -11,5 +11,6 @@ require('./services/mongoose');
 
 require('./routes/auth')(app);
 require('./routes/billing')(app);
+require('./routes/productionAssets')(app);
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}!`));

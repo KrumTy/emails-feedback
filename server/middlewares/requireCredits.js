@@ -1,11 +1,12 @@
 module.exports = (req, res, next) => {
-  const { user } = req;
+  const hasNoCredits = req.user.credits < 1;
+  const errorMessage = 'Not enough credits!';
 
-  if (!user || !user.credits < 1) {
+  if (hasNoCredits) {
     res.status(403).send({
-      error: 'Not enough credits!'
+      error: errorMessage
     });
   }
 
-  next();
+  next(hasNoCredits && errorMessage);
 };

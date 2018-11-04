@@ -1,9 +1,12 @@
 module.exports = (req, res, next) => {
-  if (!req.user) {
+  const isNotLoggedIn = !req.user;
+  const errorMessage = 'You are not logged in.';
+
+  if (isNotLoggedIn) {
     res.status(401).send({
-      error: 'You are not logged in.'
+      error: errorMessage
     });
   }
 
-  next();
+  next(isNotLoggedIn && errorMessage);
 };

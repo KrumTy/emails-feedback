@@ -1,10 +1,16 @@
 const mongoose = require('mongoose');
 const requireLogin = require('../middlewares/requireLogin');
 const requireCredits = require('../middlewares/requireCredits');
+const Mailer = require('../services/Mailer');
+const emailTemplates = require('../services/emailTemplates');
 
 const Survey = mongoose.model('surveys');
 
 module.exports = app => {
+  app.get('/api/surveys/thanks', (req, res) => {
+    res.send('Thanks for voting!');
+  });
+
   app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
     const { user } = req;
     const { title, subject, body, recipients } = req.body;
@@ -20,10 +26,17 @@ module.exports = app => {
       }))
     });
 
-    const updatedSurvey = await survey.save();
+    const mailer = new Mailer(survey, emailTemplates(survey));
 
-    console.log('updatedSurvey', updatedSurvey);
+    try {
+      await mailer.send();
+      await survey.save();
+      user.credits -= 1;
+      const updatedUser = await user.save();
 
-    res.send(updatedSurvey);
+      res.send(updatedUser);
+    } catch (error) {
+      res.status(422).send(error);
+    }
   });
 };

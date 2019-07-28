@@ -27,3 +27,14 @@ npmrun dev
 react
 npm install -g create-react-app
 \client npm start
+
+APP: https://secret-plains-84218.herokuapp.com/
+DASHBOARD: https://dashboard.heroku.com/apps/secret-plains-84218/settings
+
+emails: https://app.sendgrid.com/settings/api_keys
+
+
+https://cloud.mongodb.com/
+prod: mongodb+srv://overon:WSOT4dq2w38wUkSx@emails-feedback-tozdp.mongodb.net/test?retryWrites=true&w=majority
+dev: mongodb+srv://overon:vFuzlluxcXFgm9AK@cluster0-jxrfe.mongodb.net/test?retryWrites=true&w=majority
+https://cloud.mongodb.com/v2/5d3d5607a6f239f490c09fb4#clusters/detail/emails-feedback
